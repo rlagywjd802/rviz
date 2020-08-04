@@ -108,18 +108,22 @@ void FPSViewController::handleMouseEvent(ViewportMouseEvent& event)
   if (event.left() && !event.shift())
   {
     setCursor(Rotate3D);
-    yaw(-diff_x * 0.005);
-    pitch(diff_y * 0.005);
+    // yaw(-diff_x * 0.005);
+    // pitch(diff_y * 0.005);
+    yaw(-diff_x * 0.0005);
+    pitch(diff_y * 0.0005);
   }
   else if (event.middle() || (event.shift() && event.left()))
   {
     setCursor(MoveXY);
-    move(diff_x * 0.01, -diff_y * 0.01, 0.0f);
+    // move(diff_x * 0.01, -diff_y * 0.01, 0.0f);
+    move(diff_x * 0.001, -diff_y * 0.001, 0.00f);
   }
   else if (event.right())
   {
     setCursor(MoveZ);
-    move(0.0f, 0.0f, diff_y * 0.1);
+    // move(0.0f, 0.0f, diff_y * 0.1);
+    move(0.00f, 0.00f, diff_y * 0.01);
   }
   else
   {
@@ -130,7 +134,8 @@ void FPSViewController::handleMouseEvent(ViewportMouseEvent& event)
   if (event.wheel_delta != 0)
   {
     int diff = event.wheel_delta;
-    move(0.0f, 0.0f, -diff * 0.01);
+    // move(0.0f, 0.0f, -diff * 0.01);
+    move(0.00f, 0.00f, -diff * 0.001);
     moved = diff != 0;
   }
 
